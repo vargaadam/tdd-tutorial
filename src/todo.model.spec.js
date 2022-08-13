@@ -52,5 +52,16 @@ describe("TodoModel", () => {
 
         expect(todos).to.be.an("array");
       });
+
+    it("should return with all the previously created Todos", () => {
+      const todoModel = new TodoModel();
+      const todo1 = todoModel.create("name1", true);
+      const todo2 = todoModel.create("name2", false);
+
+      const todos = todoModel.list();
+
+      expect(todos[0]).to.eql(todo1);
+      expect(todos[1]).to.eql(todo2);
+    });
     });
 });
