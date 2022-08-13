@@ -25,5 +25,16 @@ describe("TodoModel", () => {
 
       expect(todo).to.instanceOf(Todo);
     });
+
+    it("should set the Todo instance name and active prop given by the params", () => {
+      const name = "test";
+      const active = false;
+
+      const todoModel = new TodoModel();
+      const todo = todoModel.create(name, active);
+
+      expect(todo.name).to.eql(name);
+      expect(todo.active).to.eql(active);
+    });
   });
 });
