@@ -15,6 +15,13 @@ describe("TodoModel", () => {
 
     expect(todoModel.create).to.be.a("function");
   });
+
+  it("should have a list function", () => {
+    const todo = new TodoModel();
+
+    expect(todo.list).to.be.a("function");
+  });
+
   describe("#create", () => {
     it("should return with an instance of a Todo class", () => {
       const name = "test";
