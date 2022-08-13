@@ -24,4 +24,13 @@ describe("Todo", () => {
     expect(todo.name).to.eql(name);
     expect(todo.active).to.eql(active);
   });
+
+  it("should set the active prop to true if not specified", () => {
+    const name = "test";
+
+    const todo = new Todo(name);
+
+    expect(todo.name).to.eql(name);
+    expect(todo.active).to.eql(true);
+  });
 });
