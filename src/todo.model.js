@@ -6,6 +6,8 @@ class TodoModel {
 
     return todo;
   }
+
+  list() {}
 }
 
 module.exports = TodoModel;
