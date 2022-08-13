@@ -1,14 +1,22 @@
 const Todo = require("./todo");
 
 class TodoModel {
+  db;
+
+  constructor(db) {
+    this.db = db;
+  }
+
   create(name, active) {
     const todo = new Todo(name, active);
+
+    this.db.todoList.push(todo);
 
     return todo;
   }
 
   list() {
-    return [];
+    return this.db.todoList;
   }
 }
 

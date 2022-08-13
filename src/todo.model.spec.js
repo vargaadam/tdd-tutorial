@@ -1,23 +1,30 @@
 const { expect } = require("chai");
 
+const Database = require("./database");
 const Todo = require("./todo");
 const TodoModel = require("./todo.model");
 
+const db = new Database();
+
 describe("TodoModel", () => {
+  beforeEach(() => {
+    db.clear();
+  });
+
   it("should create a TodoModel instance", () => {
-    const todoModel = new TodoModel();
+    const todoModel = new TodoModel(db);
 
     expect(todoModel).to.be.an("object");
   });
 
   it("should have a crate function", () => {
-    const todoModel = new TodoModel();
+    const todoModel = new TodoModel(db);
 
     expect(todoModel.create).to.be.a("function");
   });
 
   it("should have a list function", () => {
-    const todo = new TodoModel();
+    const todo = new TodoModel(db);
 
     expect(todo.list).to.be.a("function");
   });
@@ -27,7 +34,7 @@ describe("TodoModel", () => {
       const name = "test";
       const active = false;
 
-      const todoModel = new TodoModel();
+      const todoModel = new TodoModel(db);
       const todo = todoModel.create(name, active);
 
       expect(todo).to.instanceOf(Todo);
@@ -37,7 +44,7 @@ describe("TodoModel", () => {
       const name = "test";
       const active = false;
 
-      const todoModel = new TodoModel();
+      const todoModel = new TodoModel(db);
       const todo = todoModel.create(name, active);
 
       expect(todo.name).to.eql(name);
@@ -45,16 +52,16 @@ describe("TodoModel", () => {
     });
   });
 
-    describe("#list", () => {
-      it("should return with an array", () => {
-        const todoModel = new TodoModel();
-        const todos = todoModel.list();
+  describe("#list", () => {
+    it("should return with an array", () => {
+      const todoModel = new TodoModel(db);
+      const todos = todoModel.list();
 
-        expect(todos).to.be.an("array");
-      });
+      expect(todos).to.be.an("array");
+    });
 
     it("should return with all the previously created Todos", () => {
-      const todoModel = new TodoModel();
+      const todoModel = new TodoModel(db);
       const todo1 = todoModel.create("name1", true);
       const todo2 = todoModel.create("name2", false);
 
@@ -63,5 +70,5 @@ describe("TodoModel", () => {
       expect(todos[0]).to.eql(todo1);
       expect(todos[1]).to.eql(todo2);
     });
-    });
+  });
 });
