@@ -7,7 +7,9 @@ class TodoModel {
     return todo;
   }
 
-  list() {}
+  list() {
+    return [];
+  }
 }
 
 module.exports = TodoModel;
