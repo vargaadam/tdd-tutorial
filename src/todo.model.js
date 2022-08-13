@@ -1,3 +1,5 @@
-class TodoModel {}
+class TodoModel {
+  create() {}
+}
 
 module.exports = TodoModel;
