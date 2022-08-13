@@ -10,4 +10,9 @@ describe("TodoModel", () => {
     expect(todoModel).to.be.an("object");
   });
 
+  it("should have a crate function", () => {
+    const todoModel = new TodoModel();
+
+    expect(todoModel.create).to.be.a("function");
+  });
 });
