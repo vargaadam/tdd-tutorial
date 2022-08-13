@@ -15,4 +15,13 @@ describe("Todo", () => {
     expect(todo).to.haveOwnProperty("active");
   });
 
+  it("should set the name and active prop", () => {
+    const name = "test";
+    const active = false;
+
+    const todo = new Todo(name, active);
+
+    expect(todo.name).to.eql(name);
+    expect(todo.active).to.eql(active);
+  });
 });
