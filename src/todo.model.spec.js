@@ -44,4 +44,13 @@ describe("TodoModel", () => {
       expect(todo.active).to.eql(active);
     });
   });
+
+    describe("#list", () => {
+      it("should return with an array", () => {
+        const todoModel = new TodoModel();
+        const todos = todoModel.list();
+
+        expect(todos).to.be.an("array");
+      });
+    });
 });
