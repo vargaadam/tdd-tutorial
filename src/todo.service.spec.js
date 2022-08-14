@@ -44,5 +44,22 @@ describe("TodoService", () => {
 
       expect(mockedList.calledOnce).to.true;
     });
+
+    it("should return with the todos", () => {
+      const expectedTodoList = [
+        {
+          name: "test1",
+          active: true,
+        },
+        { name: "test2", active: false },
+      ];
+
+      mockedTodoModel.list.returns(expectedTodoList);
+
+      const todoService = new TodoService(mockedTodoModel);
+      const todoList = todoService.list();
+
+      expect(todoList).to.deep.eq(expectedTodoList);
+    });
   });
 });
