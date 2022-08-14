@@ -18,6 +18,10 @@ class TodoModel {
   list() {
     return this.db.todoList;
   }
+
+  find(name) {
+    return this.db.todoList.find((todo) => todo.name === name);
+  }
 }
 
 module.exports = TodoModel;
