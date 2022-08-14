@@ -70,5 +70,17 @@ describe("TodoModel", () => {
       expect(todos[0]).to.eql(todo1);
       expect(todos[1]).to.eql(todo2);
     });
+
+    describe("#find", () => {
+      it("should return Todo that matches the given name", () => {
+        const todoModel = new TodoModel(db);
+
+        const todo = todoModel.create("name1", true);
+
+        const foundTodo = todoModel.find(todo.name);
+
+        expect(foundTodo).to.eql(todo);
+      });
+    });
   });
 });
