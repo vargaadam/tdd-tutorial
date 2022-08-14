@@ -35,6 +35,12 @@ describe("TodoService", () => {
     expect(todoService.list).to.be.a("function");
   });
 
+  it("should have a create function", () => {
+    const todoService = new TodoService(mockedTodoModel);
+
+    expect(todoService.create).to.be.a("function");
+  });
+
   describe("#list", () => {
     it("should call the mockedTodoModel list function", () => {
       const mockedList = mockedTodoModel.list.returns();
