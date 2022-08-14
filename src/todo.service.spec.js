@@ -34,4 +34,15 @@ describe("TodoService", () => {
 
     expect(todoService.list).to.be.a("function");
   });
+
+  describe("#list", () => {
+    it("should call the mockedTodoModel list function", () => {
+      const mockedList = mockedTodoModel.list.returns();
+
+      const todoService = new TodoService(mockedTodoModel);
+      todoService.list();
+
+      expect(mockedList.calledOnce).to.true;
+    });
+  });
 });
