@@ -5,8 +5,14 @@ class TodoService {
     this.todoModel = todoModel;
   }
 
-  list() {
-    return this.todoModel.list();
+  list(onlyActive) {
+    const todoList = this.todoModel.list();
+
+    if (onlyActive) {
+      return todoList.filter((todo) => todo.active === onlyActive);
+    }
+
+    return todoList;
   }
 }
 
