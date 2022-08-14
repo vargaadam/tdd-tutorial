@@ -5,7 +5,9 @@ class TodoService {
     this.todoModel = todoModel;
   }
 
-  list() {}
+  list() {
+    return this.todoModel.list();
+  }
 }
 
 module.exports = TodoService;
