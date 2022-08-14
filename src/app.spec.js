@@ -67,6 +67,14 @@ describe("App", () => {
         expect(database.todoList.length).to.eql(1);
         expect(database.todoList[0]).to.eql(expectedTodo);
       });
+
+      it("should return with 500 if a Todo has already been created with the same name", async () => {
+        const name = "test1";
+
+        todoModel.create(name, true);
+
+        await request(app).post("/todos").send({ name }).expect(500);
+      });
     });
   });
 });
