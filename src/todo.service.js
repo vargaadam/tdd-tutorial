@@ -21,6 +21,8 @@ class TodoService {
     if (foundTodo) {
       throw new Error(`The given name: ${name} already exists`);
     }
+
+    return this.todoModel.create(name);
   }
 }
 
