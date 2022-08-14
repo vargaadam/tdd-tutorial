@@ -41,6 +41,19 @@ describe("TodoService", () => {
     expect(todoService.create).to.be.a("function");
   });
 
+  describe("#create", () => {
+    it("should call the mockedTodoModel find function", () => {
+      const name = "test1";
+
+      const mockedModelFind = mockedTodoModel.find.withArgs(name).returns();
+
+      const todoService = new TodoService(mockedTodoModel);
+      todoService.create(name);
+
+      expect(mockedModelFind.calledOnce).to.true;
+    });
+  });
+
   describe("#list", () => {
     it("should call the mockedTodoModel list function", () => {
       const mockedList = mockedTodoModel.list.returns();
