@@ -14,7 +14,11 @@ class TodoController {
   };
 
   create = (req, res) => {
-    res.send();
+    const { name } = req.body;
+
+    const todo = this.todoService.create(name);
+
+    res.send(todo);
   };
 }
 
