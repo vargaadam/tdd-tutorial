@@ -15,7 +15,9 @@ class TodoService {
     return todoList;
   }
 
-  create() {}
+  create(name) {
+    const foundTodo = this.todoModel.find(name);
+  }
 }
 
 module.exports = TodoService;
