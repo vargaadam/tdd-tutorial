@@ -28,4 +28,10 @@ describe("TodoService", () => {
 
     expect(todoService.todoModel).instanceOf(TodoModel);
   });
+
+  it("should have a list function", () => {
+    const todoService = new TodoService(mockedTodoModel);
+
+    expect(todoService.list).to.be.a("function");
+  });
 });
