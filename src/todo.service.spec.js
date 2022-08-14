@@ -17,28 +17,10 @@ describe("TodoService", () => {
     sandbox.restore();
   });
 
-  it("should create a TodoService instance", () => {
-    const todoService = new TodoService(mockedTodoModel);
-
-    expect(todoService).to.be.a("object");
-  });
-
   it("should set the todoModel given by the constructor", () => {
     const todoService = new TodoService(mockedTodoModel);
 
     expect(todoService.todoModel).instanceOf(TodoModel);
-  });
-
-  it("should have a list function", () => {
-    const todoService = new TodoService(mockedTodoModel);
-
-    expect(todoService.list).to.be.a("function");
-  });
-
-  it("should have a create function", () => {
-    const todoService = new TodoService(mockedTodoModel);
-
-    expect(todoService.create).to.be.a("function");
   });
 
   describe("#create", () => {
