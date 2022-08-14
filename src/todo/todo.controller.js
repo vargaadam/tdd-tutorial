@@ -6,7 +6,9 @@ class TodoController {
   }
 
   getAll = (req, res) => {
-    const todos = this.todoService.list();
+    const onlyActive = req.query.onlyActive === "true";
+
+    const todos = this.todoService.list(onlyActive);
 
     res.send(todos);
   };
