@@ -61,6 +61,23 @@ describe("TodoService", () => {
 
       expect(() => todoService.create(name)).to.throw(Error);
     });
+
+    it("should call the mockedTodoModel create function", () => {
+      const expectedTodo = {
+        name: "test1",
+        active: true,
+      };
+
+      const mockedModelFind = mockedTodoModel.create
+        .withArgs(expectedTodo.name)
+        .returns(expectedTodo);
+
+      const todoService = new TodoService(mockedTodoModel);
+      const createdTodo = todoService.create(expectedTodo.name);
+
+      expect(mockedModelFind.calledOnce).to.true;
+      expect(createdTodo).to.eql(expectedTodo);
+    });
   });
 
   describe("#list", () => {
