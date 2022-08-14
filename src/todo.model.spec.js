@@ -11,24 +11,6 @@ describe("TodoModel", () => {
     db.clear();
   });
 
-  it("should create a TodoModel instance", () => {
-    const todoModel = new TodoModel(db);
-
-    expect(todoModel).to.be.an("object");
-  });
-
-  it("should have a crate function", () => {
-    const todoModel = new TodoModel(db);
-
-    expect(todoModel.create).to.be.a("function");
-  });
-
-  it("should have a list function", () => {
-    const todo = new TodoModel(db);
-
-    expect(todo.list).to.be.a("function");
-  });
-
   describe("#create", () => {
     it("should return with an instance of a Todo class", () => {
       const name = "test";
@@ -70,17 +52,17 @@ describe("TodoModel", () => {
       expect(todos[0]).to.eql(todo1);
       expect(todos[1]).to.eql(todo2);
     });
+  });
 
-    describe("#find", () => {
-      it("should return Todo that matches the given name", () => {
-        const todoModel = new TodoModel(db);
+  describe("#find", () => {
+    it("should return Todo that matches the given name", () => {
+      const todoModel = new TodoModel(db);
 
-        const todo = todoModel.create("name1", true);
+      const todo = todoModel.create("name1", true);
 
-        const foundTodo = todoModel.find(todo.name);
+      const foundTodo = todoModel.find(todo.name);
 
-        expect(foundTodo).to.eql(todo);
-      });
+      expect(foundTodo).to.eql(todo);
     });
   });
 });
