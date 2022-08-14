@@ -52,6 +52,15 @@ describe("TodoService", () => {
 
       expect(mockedModelFind.calledOnce).to.true;
     });
+
+    it("should throw an error if a Todo is found with specified name", () => {
+      const name = "test";
+      mockedTodoModel.find.returns({ name });
+
+      const todoService = new TodoService(mockedTodoModel);
+
+      expect(() => todoService.create(name)).to.throw(Error);
+    });
   });
 
   describe("#list", () => {
