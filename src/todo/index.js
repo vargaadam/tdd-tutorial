@@ -9,5 +9,6 @@ module.exports = {
     const todoController = new TodoController(todoService);
 
     app.get("/todos", todoController.getAll);
+    app.post("/todos", todoController.create);
   },
 };

@@ -12,6 +12,10 @@ class TodoController {
 
     res.send(todos);
   };
+
+  create = (req, res) => {
+    res.send();
+  };
 }
 
 module.exports = TodoController;
