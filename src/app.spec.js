@@ -44,5 +44,11 @@ describe("App", () => {
           .expect(200, [activeTodo]);
       });
     });
+
+    describe("#POST", () => {
+      it("should return with 200", async () => {
+        await request(app).post("/todos").expect(200);
+      });
+    });
   });
 });
