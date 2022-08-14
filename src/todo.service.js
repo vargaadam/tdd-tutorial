@@ -17,6 +17,10 @@ class TodoService {
 
   create(name) {
     const foundTodo = this.todoModel.find(name);
+
+    if (foundTodo) {
+      throw new Error(`The given name: ${name} already exists`);
+    }
   }
 }
 
