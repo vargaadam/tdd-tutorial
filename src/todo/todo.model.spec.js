@@ -1,6 +1,6 @@
 const { expect } = require("chai");
 
-const Database = require("./database");
+const Database = require("../database");
 const Todo = require("./todo");
 const TodoModel = require("./todo.model");
 
